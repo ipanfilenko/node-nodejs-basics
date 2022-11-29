@@ -17,9 +17,9 @@ const copy = async () => {
     }
 
     await mkdir(`${path}/${destinationDirectory}`);
-    const sourceDirExist = await opendir(`${path}/${sourceDirectory}`);
+    const sourceDir = await opendir(`${path}/${sourceDirectory}`);
 
-    for await (const file of sourceDirExist)
+    for await (const file of sourceDir)
       copyFile(
         `${path}/${sourceDirectory}/${file.name}`,
         `${path}/${destinationDirectory}/${file.name}`
