@@ -1,10 +1,10 @@
-import { rename as renameFile } from "node:fs/promises";
-import { isPathExist } from "./utils/isPathExist.js";
-import { errorMessage } from "./utils/constants.js";
+import { rename as renameFile } from 'node:fs/promises';
+import { isPathExist } from './utils/isPathExist.js';
+import { errorMessage } from './utils/constants.js';
 
-const sourceFileName = "wrongFilename.txt";
-const destinationFileName = "properFilename.md";
-const path = `src/fs/files`;
+const sourceFileName = 'wrongFilename.txt';
+const destinationFileName = 'properFilename.md';
+const path = 'src/fs/files';
 
 const rename = async () => {
   const isDestinationFileExist = await isPathExist(

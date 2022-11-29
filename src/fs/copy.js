@@ -1,9 +1,9 @@
-import { opendir, copyFile, mkdir } from "node:fs/promises";
-import { isPathExist } from "./utils/isPathExist.js";
-import { errorMessage, sourceDirectory } from "./utils/constants.js";
+import { opendir, copyFile, mkdir } from 'node:fs/promises';
+import { isPathExist } from './utils/isPathExist.js';
+import { errorMessage, sourceDirectory } from './utils/constants.js';
 
-const destinationDirectory = "files_copy";
-const path = `src/fs/`;
+const destinationDirectory = 'files_copy';
+const path = 'src/fs/';
 
 const copy = async () => {
   try {
