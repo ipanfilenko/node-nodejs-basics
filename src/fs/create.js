@@ -1,20 +1,14 @@
-import { access, appendFile } from 'node:fs/promises';
+import { appendFile } from 'node:fs/promises';
+import { isPathExist } from './utils/isPathExist.js';
+import { errorMessage, sourceDirectory } from './utils/constants.js';
 
-const directory = 'files';
 const fileName = 'fresh.txt';
 const textInFile = 'I am fresh and young';
-const errorMessage = 'FS operation failed';
 const successMessage = 'File created';
-const path = `src/${directory}/${fileName}`;
+const path = `src/fs/${sourceDirectory}/${fileName}`;
 
 const create = async () => {
-  let isFileExist = false;
-
-  try {
-    await access(path);
-    isFileExist = true;
-  } catch {}
-
+  const isFileExist = await isPathExist(path);
 
   if (isFileExist) {
     throw new Error(errorMessage);
@@ -22,7 +16,7 @@ const create = async () => {
 
   try {
     await appendFile(path, textInFile);
-    console.log(successMessage);
+    console.info(successMessage);
   } catch {
     throw new Error(errorMessage);
   }
